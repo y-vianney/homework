@@ -23,7 +23,7 @@
     {
         width: 65%;
         padding: 0 0 10px 0;
-        display: none !important;
+        display: none;
     }
     ul
     {
@@ -121,9 +121,9 @@
     </div>
 </div>
 <script>
-    let i = 0;
+    let i = 1;
     document.getElementsByClassName('burger-menu')[0].addEventListener('click', (e) => {
-        if (i % 2 !=0)
+        if (i % 2 ==0)
         {
             document.getElementsByClassName('nav-bar')[0].style.display = 'none';
         } else {
