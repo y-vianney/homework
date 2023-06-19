@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: "copernicus-book";
+    src: url('./Copernicus-MediumItalic/Copernicus-MediumItalic.ttf');
+}
+@font-face {
+    font-family: "Rationalist";
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Black-BF63fd7567c3a2b.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Black-Italic-BF63fd7567589f8.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Bold-BF63fd75673d3f7.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Bold-Italic-BF63fd7565a5fde.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-DemiBold-BF63fd75672a096.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-DemiBold-Italic-BF63fd756765489.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-ExtraBold-BF63fd7567b708c.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-ExtraBold-Italic-BF63fd7567d6f9a.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-ExtraLight-BF63fd75678c74a.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Medium-BF63fd756a15a1a.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Normal-BF63fd756a3cc8d.ttf');
+    src: url('./tt-rationalist/TT-Rationalist-Trial-Regular-BF63fd7569a83bd.ttf');
+}
+*::placeholder
+{
+    font-size: 12px;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a
+{
+    color: #fff;
+    text-decoration: none;
+}
+body
+{
+    background-color: rgb(243, 243, 243);
+}
+main
+{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.active
+{
+    opacity: .6;
+}
+
+.container
+{
+    border: 1px solid #000;
+    height: 400px;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 15px;
+} 
+input
+{
+    margin: 5px 5px 15px 5px;
+    border: none;
+    border-bottom: 2px solid #444;
+    padding: 0 0 0 5px;
+    color: #000;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 45px;
+    width: 90%;
+    outline: none;
+}
+button
+{
+    cursor: pointer;
+}
+.container button
+{
+    border: none;
+    padding: 12px 50px;
+    color: #fff;
+    background-color: #444;
+    border-radius: 50px;
+    margin-top: 15px;
+}
+table
+{
+    font-family: 'Rationalist', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: normal;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+th
+{
+    font-family: 'Catamaran';
+    font-weight: 700;
+    height: 45px;
+}
+.data-table
+{
+    min-height: 380px;
+    padding: 20px;
+    background-color: #fff;
+}
+td, th
+{
+    width: 300px;
+    height: 50px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0 0 0 20px;
+    border-bottom: 1.5px solid #e0dbdbab;
+}
+.pagination
+{
+    margin-top: 20px;
+    float: right;
+    width: 110px;
+    font-size: 16px;
+    color: #444;
+    font-family: 'Rationalist', sans-serif;
+}
+.pagination button
+{
+    margin: 0 7px;
+    border: none;
+    background-color: transparent;
+}
+.pagination button:disabled
+{
+    cursor: not-allowed;
+}
+.data-table-top
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+.data-table-top button
+{
+    border: none;
+    padding: 10px 40px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: .7em;
+    font-family: 'Catamaran', Arial, Helvetica, sans-serif;
+}
+.data-table-top .title
+{
+    font-weight: 700;
+    font-family: 'Catamaran', 'Rationalist', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    text-decoration: underline;
+}
+.box
+{
+    width: 550px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 14px;
+}
+.form-box
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+.form-box input, select
+{
+    border-bottom: 1px solid #e2e2e2;
+    border-top: 1px solid #afaeae;
+    border-left: 1px solid #afaeae;
+    border-right: 1px solid #afaeae;
+    border-radius: 5px;
+    height: 35px;
+    width: 70%;
+    float: right;
+    padding-left: 10px;
+    font-style: italic;
+    font-size: 14px;
+}
+select
+{
+    color: #676767;
+}
+.text-field
+{
+    width: 25%;
+    float: left;
+    padding-left: 15px;
+    font-family: 'Rationalist', 'Times new roman', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.field
+{
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.arrow
+{
+    position: absolute;
+    right: 11px;
+    top: 9px;
+    transform: rotate(90deg);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: #676767;
+}
