@@ -92,7 +92,7 @@
 </style>
 <div class="header">
     <div class="top">
-        <div class="logo">AyA</div>
+        <div class="logo">CPY</div>
         <span class="burger-menu">
             <span class="row">
                 <span class="point"></span>
