@@ -17,6 +17,10 @@
                 text-decoration: underline;
                 color: #444;
             }
+            th,td
+            {
+                width: 200px;
+            }
         </style>
     </head>
     <?php
@@ -29,6 +33,8 @@
         $lib = $_POST['label'];
         $prix = $_POST['price'];
         $mat = $_POST['mat'];
+        $dispo = ($_POST['dispo'] == 'Disponible') ? 0 : 1;
+
         if ($_GET['btnPrevious']) $n = $_GET['btnPrevious'];
         if ($_GET['btnNext']) $n = $_GET['btnNext'];
         $offset = $max * $n - $max;
@@ -36,12 +42,12 @@
 
         if (isset($_POST['subBtn']))
         {
-            $req = "INSERT INTO produit VALUES ('$mat', \"$lib\", $prix)";
+            $req = "INSERT INTO produit VALUES ('$mat', \"$lib\", $prix, $dispo)";
             $exRep = mysqli_query($cnx, $req);
         }
         else if (isset($_POST['btnUpdate']))
         {
-            $req = "UPDATE produit SET libelle=\"$lib\", prix=$prix WHERE code_prod='$mat'";
+            $req = "UPDATE produit SET libelle=\"$lib\", prix=$prix, disponibilite=$dispo WHERE code_prod='$mat'";
             $exRep = mysqli_query($cnx, $req);
         }
         else if (isset($_POST['btnDelete']))
@@ -63,6 +69,7 @@
                         <th>Code produit</th>
                         <th>Libellé</th>
                         <th>Prix unitaire</th>
+                        <th>Disponibilité</th>
                         <th style="width: 150px"></th>
                     </tr>
                     <?php
@@ -83,8 +90,14 @@
                             <td>
                                 <?php echo $row[2]; ?>
                             </td>
+                            <td>
+                                <?php
+                                    $isOk = ($row[3] == 0) ? 'Disponible' : 'Indisponible';
+                                    echo $isOk; 
+                                ?>
+                            </td>
                             <td style="width: 150px">
-                                <a href="http://localhost:8888/tests/homework/update.php?what=produit<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] ?>">
+                                <a href="http://localhost:8888/tests/homework/update.php?what=produit<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] . "&dispo=" . $row[3] ?>">
                                     <span class="update">Modifier</span>
                                 </a>
                             </td>

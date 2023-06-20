@@ -131,6 +131,7 @@
                             $code = $_GET['id'];
                             $prix = $_GET['prix'];
                             $label = $_GET['lib'];
+                            $dispo = ($_GET['dispo'] == 0) ? 'Disponible' : 'Indisponible';
                         ?>
                         <?php if($_GET['what'] == 'produit'): ?>
                             <div class="field">
@@ -141,6 +142,9 @@
                             </div>
                             <div class="field">
                                 <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix" value="<?php echo $prix ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Disponibilité</div> <input type="text" name="dispo" id="" required placeholder="Est-il disponible en stock ?" value="<?php echo $dispo ?>">
                             </div>
                         <?php endif; ?>
                     </div>

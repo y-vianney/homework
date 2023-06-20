@@ -77,6 +77,9 @@
                             <div class="field">
                                 <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix">
                             </div>
+                            <div class="field">
+                                <div class="text-field">Disponibilité</div> <input type="text" name="dispo" id="" required placeholder="Est-il disponible en stock ?">
+                            </div>
                         <?php endif; ?>
                     </div>
                     <div style="width: 100%; display: flex; justify-content: center">
