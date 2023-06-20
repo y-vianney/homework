@@ -53,7 +53,7 @@
                                 <div class="text-field">Prénom(s)</div> <input type="text" name="pnom" id="" placeholder="Prénom.s">
                             </div>
                             <div class="field">
-                                <div class="text-field">Contact</div> <input type="tel" name="tel" id="" placeholder="Numéro de téléphone">
+                                <div class="text-field">Contact</div> <input type="text" name="tel" id="" placeholder="Numéro de téléphone">
                             </div>
                             <div class="field">
                                 <div class="text-field">Type de client </div>
