@@ -32,7 +32,7 @@
 
         $max = 8;
 
-        $nb = ceil($nb / $max);
+        $nb = ceil($nb_commandes / $max);
         $n = 1;
 
         $lib = $_POST['label'];

@@ -28,7 +28,7 @@
 
         $max = 8;
 
-        $nb = ceil($nb / $max);
+        $nb = ceil($nb_produits / $max);
         $n = 1;
         $lib = $_POST['label'];
         $prix = $_POST['price'];

@@ -24,7 +24,7 @@
 
         $max = 8;
 
-        $nb = ceil($nb / $max);
+        $nb = ceil($nb_clients / $max);
         $n = 1;
         $name = $_POST['name'];
         $pnom = $_POST['pnom'];
