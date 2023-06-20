@@ -67,7 +67,7 @@
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Commandes</div>
-                    <button><a href="http://localhost:8888/tests/homework/add.php?what=command">Ajouter</a></button>
+                    <button><a href="./add.php?what=command">Ajouter</a></button>
                 </div>
                 <table>
                     <tr>
@@ -102,7 +102,7 @@
                                 ?>
                             </td>
                             <td style="width: 150px">
-                                <a href="http://localhost:8888/tests/homework/update.php?what=command<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] . "&status=" . $row[3] ?>">
+                                <a href="./update.php?what=command<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] . "&status=" . $row[3] ?>">
                                     <span class="update">Modifier</span>
                                 </a>
                             </td>

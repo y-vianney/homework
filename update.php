@@ -104,7 +104,7 @@
                     <div class="form-box">
                         <?php if($_GET['what'] == 'client'): ?>
                             <div class="field">
-                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Client N°" value="<?php echo $code ?>>
+                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Client N°" value="<?php echo $code ?>">
                             </div>
                             <div class="field">
                                 <div class="text-field">Nom</div> <input type="text" name="name" id="" required placeholder="Nom" value="<?php echo $name ?>">
@@ -113,7 +113,7 @@
                                 <div class="text-field">Prénom(s)</div> <input type="text" name="pnom" id="" placeholder="Prénom.s" value="<?php echo $pname ?>">
                             </div>
                             <div class="field">
-                                <div class="text-field">Contact</div> <input type="tel" name="tel" id="" placeholder="Numéro de téléphone" value="<?php echo $num ?>">
+                                <div class="text-field">Contact</div> <input type="text" name="tel" id="" placeholder="Numéro de téléphone" value="<?php echo $num ?>">
                             </div>
                             <div class="field">
                                 <div class="text-field">Type de client </div>
