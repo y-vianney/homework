@@ -93,7 +93,7 @@
                             <td>
                                 <?php
                                     $isOk = ($row[3] == 0) ? 'Disponible' : 'Indisponible';
-                                    echo $isOk; 
+                                    echo "<span style=\"font-style: italic; color: #7e7c7c;\">$isOk</span>"; 
                                 ?>
                             </td>
                             <td style="width: 150px">

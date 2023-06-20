@@ -116,7 +116,7 @@
             <li><a href="http://localhost:8888/tests/homework/home.php">Home</a></li>
             <li><a href="http://localhost:8888/tests/homework/sub.php">Clients</a></li>
             <li><a href="http://localhost:8888/tests/homework/product.php">Produits</a></li>
-            <li><a href="http://localhost:8888/tests/homework/sub.php">Commandes</a></li>
+            <li><a href="http://localhost:8888/tests/homework/command.php">Commandes</a></li>
         </ul>
     </div>
 </div>

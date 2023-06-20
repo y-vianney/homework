@@ -33,6 +33,7 @@
         $action = "";
         if ($_GET['what'] == 'client') $action = 'sub.php';
         if ($_GET['what'] == 'produit') $action = 'product.php';
+        if ($_GET['what'] == 'command') $action = 'command.php';
     ?>
     <body>
         <?php include_once('./public/header.php'); ?>
@@ -79,6 +80,20 @@
                             </div>
                             <div class="field">
                                 <div class="text-field">Disponibilité</div> <input type="text" name="dispo" id="" required placeholder="Est-il disponible en stock ?">
+                            </div>
+                        <?php endif; ?>
+                        <?php if($_GET['what'] == 'command'): ?>
+                            <div class="field">
+                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Commande N°">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Libellé</div> <input type="text" name="label" id="" required placeholder="Libellé de la commande">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Statut</div> <input type="text" name="status" id="" required placeholder="Statut de la commande">
                             </div>
                         <?php endif; ?>
                     </div>

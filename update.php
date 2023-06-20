@@ -85,6 +85,7 @@
         $action = "";
         if ($_GET['what'] == 'client') $action = 'sub.php';
         if ($_GET['what'] == 'produit') $action = 'product.php';
+        if ($_GET['what'] == 'command') $action = 'command.php';
     ?>
     <body>
         <?php include_once('./public/header.php'); ?>
@@ -127,13 +128,13 @@
                                 <span class="arrow">></span>
                             </div>
                         <?php endif; ?>
-                        <?php
-                            $code = $_GET['id'];
-                            $prix = $_GET['prix'];
-                            $label = $_GET['lib'];
-                            $dispo = ($_GET['dispo'] == 0) ? 'Disponible' : 'Indisponible';
-                        ?>
                         <?php if($_GET['what'] == 'produit'): ?>
+                            <?php
+                                $code = $_GET['id'];
+                                $prix = $_GET['prix'];
+                                $label = $_GET['lib'];
+                                $dispo = ($_GET['dispo'] == 0) ? 'Disponible' : 'Indisponible';
+                            ?>
                             <div class="field">
                                 <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Produit N°" value="<?php echo $code ?>">
                             </div>
@@ -144,7 +145,43 @@
                                 <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix" value="<?php echo $prix ?>">
                             </div>
                             <div class="field">
-                                <div class="text-field">Disponibilité</div> <input type="text" name="dispo" id="" required placeholder="Est-il disponible en stock ?" value="<?php echo $dispo ?>">
+                                <div class="text-field">Disponibilité</div>
+                                <div style="width: 60%; display: flex; justify-content: space-around; align-items: center;">
+                                    <div style="width: auto; display: flex; align-items: center;">
+                                        <input type="radio" name="dispo" id="disp" value="Disponible" required><label for="disp">Disponible</label>
+                                    </div>
+                                    <div style="width: auto; display: flex; align-items: center;">
+                                        <input type="radio" name="dispo" id="indisp" value="Indisponible" required><label for="indisp">Indisponible</label>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <?php if($_GET['what'] == 'command'): ?>
+                            <?php
+                                $code = $_GET['id'];
+                                $prix = $_GET['prix'];
+                                $label = $_GET['lib'];
+                                $status = ($_GET['status'] == 0) ? 'Completed' : 'Pending';
+                            ?>
+                            <div class="field">
+                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Commande N°" value="<?php echo $code ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Libellé</div> <input type="text" name="label" id="" required placeholder="Libellé de la commande" value="<?php echo $label ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix" value="<?php echo $prix ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Statut</div>
+                                <div style="width: 60%; display: flex; justify-content: space-around; align-items: center;">
+                                    <div style="width: auto; display: flex; align-items: center;">
+                                        <input type="radio" name="status" id="comp" value="Completed" required><label for="comp">Completed</label>
+                                    </div>
+                                    <div style="width: auto; display: flex; align-items: center;">
+                                        <input type="radio" name="status" id="pend" value="Pending" required><label for="pend">Pending</label>
+                                    </div>
+                                </div>
                             </div>
                         <?php endif; ?>
                     </div>
