@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : lun. 19 juin 2023 à 20:09
+-- Généré le : mar. 20 juin 2023 à 20:01
 -- Version du serveur : 5.7.39
 -- Version de PHP : 7.4.33
 
@@ -46,6 +46,26 @@ INSERT INTO `client` (`mat_cli`, `nom`, `prenom`, `contact`, `type_client`) VALU
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `commande`
+--
+
+CREATE TABLE `commande` (
+  `cmd_id` varchar(10) NOT NULL,
+  `libelle` varchar(100) NOT NULL,
+  `prix` int(11) NOT NULL,
+  `statut` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`cmd_id`, `libelle`, `prix`, `statut`) VALUES
+('1', 'Commande de biscuit QUADRATINI pour 50', 162500, '1');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `produit`
 --
 
@@ -53,8 +73,15 @@ CREATE TABLE `produit` (
   `code_prod` varchar(10) NOT NULL,
   `libelle` varchar(55) NOT NULL,
   `prix` int(7) NOT NULL,
-  `categorie` varchar(35) NOT NULL
+  `disponibilite` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `produit`
+--
+
+INSERT INTO `produit` (`code_prod`, `libelle`, `prix`, `disponibilite`) VALUES
+('1', 'Quadratini', 3625, 1);
 
 -- --------------------------------------------------------
 
@@ -85,6 +112,12 @@ INSERT INTO `type_client` (`type_id`, `libelle`) VALUES
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`mat_cli`);
+
+--
+-- Index pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`cmd_id`);
 
 --
 -- Index pour la table `produit`
