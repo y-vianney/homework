@@ -21,6 +21,10 @@
             {
                 width: 200px;
             }
+            th:nth-child(2), td:nth-child(2)
+            {
+                width: 350px;
+            }
         </style>
     </head>
     <?php
@@ -69,7 +73,7 @@
                     <tr>
                         <th>Code</th>
                         <th>Libellé</th>
-                        <th>Prix</th>
+                        <th>Montant</th>
                         <th>Statut</th>
                         <th style="width: 150px"></th>
                     </tr>
@@ -89,7 +93,7 @@
                                 <?php echo $row[1]; ?>
                             </td>
                             <td>
-                                <?php echo $row[2]; ?>
+                                <?php echo $row[2] . ' F'; ?>
                             </td>
                             <td>
                                 <?php

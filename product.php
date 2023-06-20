@@ -88,7 +88,7 @@
                                 <?php echo $row[1]; ?>
                             </td>
                             <td>
-                                <?php echo $row[2]; ?>
+                                <?php echo $row[2] . ' F'; ?>
                             </td>
                             <td>
                                 <?php
