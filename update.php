@@ -82,15 +82,18 @@
         $num = $_GET['num'];
 
         $req = mysqli_query($cnx, "select * from type_client");
+        $action = "";
+        if ($_GET['what'] == 'client') $action = 'sub.php';
+        if ($_GET['what'] == 'produit') $action = 'product.php';
     ?>
     <body>
         <?php include_once('./public/header.php'); ?>
         <main>
             <div class="box">
-                <form action="sub.php" method="post">
+                <form action="<?php echo $action ?>" method="post">
                     <div class="data-table-top">
                         <div>
-                            <a href='javascript:history.back(1);' class="back-link" style="color: #000">Clients </a>> Editer
+                            <a href='javascript:history.back(1);' class="back-link" style="color: #000"><?php echo ucwords($_GET['what']) ?> </a>> Editer
                         </div>
                         <div>
                             <button style="padding: 10px 20px; background-color: transparent; color: #444;" class="delete">Supprimer</button>
@@ -98,30 +101,48 @@
                         </div>
                     </div>
                     <div class="form-box">
-                        <div class="field">
-                            <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Client N°" value="<?php echo $code ?>">
-                        </div>
-                        <div class="field">
-                            <div class="text-field">Nom</div> <input type="text" name="name" id="" required placeholder="Nom" value="<?php echo $name ?>">
-                        </div>
-                        <div class="field">
-                            <div class="text-field">Prénom(s)</div> <input type="text" name="pnom" id="" placeholder="Prénom.s" value="<?php echo $pname ?>">
-                        </div>
-                        <div class="field">
-                            <div class="text-field">Contact</div> <input type="tel" name="tel" id="" placeholder="Numéro de téléphone" value="<?php echo $num ?>">
-                        </div>
-                        <div class="field">
-                            <div class="text-field">Type de client </div>
-                            <select name="typcli" id="" required>
-                                <option value="" disabled selected><span class="hint">Choisis une option</span></option>
-                                <?php 
-                                    while($res = mysqli_fetch_array($req)) {
-                                        echo '<option value="' . $res[0] . '">' . $res[1] . '</option>"';
-                                    } 
-                                ?>
-                            </select>
-                            <span class="arrow">></span>
-                        </div>
+                        <?php if($_GET['what'] == 'client'): ?>
+                            <div class="field">
+                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Client N°" value="<?php echo $code ?>>
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Nom</div> <input type="text" name="name" id="" required placeholder="Nom" value="<?php echo $name ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Prénom(s)</div> <input type="text" name="pnom" id="" placeholder="Prénom.s" value="<?php echo $pname ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Contact</div> <input type="tel" name="tel" id="" placeholder="Numéro de téléphone" value="<?php echo $num ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Type de client </div>
+                                <select name="typcli" id="">
+                                    <option value="" disabled selected><span class="hint">Choisis une option</span></option>
+                                    <?php 
+                                        while($res = mysqli_fetch_array($req)) {
+                                            echo '<option value="' . $res[0] . '">' . $res[1] . '</option>"';
+                                        } 
+                                    ?>
+                                </select>
+                                <span class="arrow">></span>
+                            </div>
+                        <?php endif; ?>
+                        <?php
+                            $code = $_GET['id'];
+                            $prix = $_GET['prix'];
+                            $label = $_GET['lib'];
+                        ?>
+                        <?php if($_GET['what'] == 'produit'): ?>
+                            <div class="field">
+                                <div class="text-field">Code</div> <input type="text" name="mat" id="" required placeholder="Produit N°" value="<?php echo $code ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Libellé</div> <input type="text" name="label" id="" required placeholder="Nom du produit" value="<?php echo $label ?>">
+                            </div>
+                            <div class="field">
+                                <div class="text-field">Prix</div> <input type="text" name="price" id="" required placeholder="Prix" value="<?php echo $prix ?>">
+                            </div>
+                        <?php endif; ?>
                     </div>
                     <div id="dialog">
                         <div class="dialog box" style="height: 250px; width: 500px; margin: 10px 0 0 0">
