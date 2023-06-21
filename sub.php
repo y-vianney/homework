@@ -17,12 +17,22 @@
                 text-decoration: underline;
                 color: #444;
             }
+            .message
+            {
+                padding: 3px 10px;
+                background-color: red;
+                color: white;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                font-family: 'Courier New', Courier, monospace;
+            }
         </style>
     </head>
     <?php
         include_once('main.php');
 
-        $max = 8;
+        $max = 5;
 
         $nb = ceil($nb_clients / $max);
         $n = 1;
@@ -40,21 +50,29 @@
         {
             $req = "INSERT INTO client VALUES ('$mat', \"$name\", \"$pnom\", '$tel', $typcli)";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnUpdate']))
         {
             $req = "UPDATE client SET nom=\"$name\", prenom=\"$pnom\", contact=$tel, type_client=$typcli WHERE mat_cli='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnDelete']))
         {
             $req = "DELETE FROM client WHERE mat_cli='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
     ?>
     <body>
         <?php include_once('./public/header.php') ?>
         <main>
+        <?php if ($error == 1): ?>
+            <span class="message">
+                Une erreur est survenue lors de l'exécution de la requête. Veuillez réessayer !
+            </span>
+        <?php endif; ?>
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Clients</div>
@@ -86,7 +104,7 @@
                                 <?php echo $row[3]; ?>
                             </td>
                             <td style="width: 150px">
-                                <a href="http://localhost:<?php echo $port ?>/tests/homework/update.php?what=client<?php echo "&id=" . $row[0] . "&name=" . $row[1] . "&pname=" . $row[2] . "&num=" . $row[3] ?>">
+                                <a href="http://localhost:<?php echo $port ?>/tests/homework/update.php?what=client<?php echo "&id=" . $row[0] . "&name=" . $row[1] . "&pname=" . $row[2] . "&num=" . $row[3]?>">
                                     <span class="update">Modifier</span>
                                 </a>
                             </td>

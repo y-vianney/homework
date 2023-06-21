@@ -117,7 +117,7 @@
     <div class="nav-bar">
         <ul>
             <li><a href="http://localhost:<?php echo "$port/$dirname" ?>/homework/home.php">Home</a></li>
-            <li><a href="http://localhost:<?php echo "$port/$dirname" ?>homework/sub.php">Clients</a></li>
+            <li><a href="http://localhost:<?php echo "$port/$dirname" ?>/homework/sub.php">Clients</a></li>
             <li><a href="http://localhost:<?php echo "$port/$dirname" ?>/homework/product.php">Produits</a></li>
             <li><a href="http://localhost:<?php echo "$port/$dirname" ?>/homework/command.php">Commandes</a></li>
         </ul>

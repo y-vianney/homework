@@ -21,12 +21,22 @@
             {
                 width: 200px;
             }
+            .message
+            {
+                padding: 3px 10px;
+                background-color: red;
+                color: white;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                font-family: 'Courier New', Courier, monospace;
+            }
         </style>
     </head>
     <?php
         include_once('main.php');
 
-        $max = 8;
+        $max = 5;
 
         $nb = ceil($nb_produits / $max);
         $n = 1;
@@ -44,21 +54,29 @@
         {
             $req = "INSERT INTO produit VALUES ('$mat', \"$lib\", $prix, $dispo)";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnUpdate']))
         {
             $req = "UPDATE produit SET libelle=\"$lib\", prix=$prix, disponibilite=$dispo WHERE code_prod='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnDelete']))
         {
             $req = "DELETE FROM produit WHERE code_prod='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
     ?>
     <body>
         <?php include_once('./public/header.php') ?>
         <main>
+        <?php if ($error == 1): ?>
+            <span class="message">
+                Une erreur est survenue lors de l'exécution de la requête. Veuillez réessayer !
+            </span>
+        <?php endif; ?>
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Produits</div>

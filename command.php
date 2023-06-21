@@ -25,13 +25,23 @@
             {
                 width: 350px;
             }
+            .message
+            {
+                padding: 3px 10px;
+                background-color: red;
+                color: white;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                font-family: 'Courier New', Courier, monospace;
+            }
         </style>
     </head>
     <?php
         include_once('main.php');
 
-        $max = 8;
-        $error = 1;
+        $max = 5;
+        $error = 0;
 
         $nb = ceil($nb_commandes / $max);
         $n = 1;
@@ -50,23 +60,29 @@
         {
             $req = "INSERT INTO commande VALUES ('$mat', \"$lib\", $prix, $status)";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnUpdate']))
         {
             $req = "UPDATE commande SET libelle=\"$lib\", prix=$prix, statut=$status WHERE cmd_id='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
         else if (isset($_POST['btnDelete']))
         {
             $req = "DELETE FROM commande WHERE cmd_id='$mat'";
             $exRep = mysqli_query($cnx, $req);
+            $error = ($exRep == 0) ? 1 : 0;
         }
-        $error = ($exRep == true) ? 1 : 0;
-        echo $error;
     ?>
     <body>
         <?php include_once('./public/header.php') ?>
         <main>
+        <?php if ($error == 1): ?>
+            <span class="message">
+                Une erreur est survenue lors de l'exécution de la requête. Veuillez réessayer !
+            </span>
+        <?php endif; ?>
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Commandes</div>
