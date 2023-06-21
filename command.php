@@ -31,6 +31,7 @@
         include_once('main.php');
 
         $max = 8;
+        $error = 1;
 
         $nb = ceil($nb_commandes / $max);
         $n = 1;
@@ -60,6 +61,8 @@
             $req = "DELETE FROM commande WHERE cmd_id='$mat'";
             $exRep = mysqli_query($cnx, $req);
         }
+        $error = ($exRep == true) ? 1 : 0;
+        echo $error;
     ?>
     <body>
         <?php include_once('./public/header.php') ?>

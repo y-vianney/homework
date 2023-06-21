@@ -62,7 +62,7 @@
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Produits</div>
-                    <button><a href="./add.php?what=produit">Ajouter</a></button>
+                    <button><a href="http://localhost:<?php echo $port ?>/tests/homework/add.php?what=produit">Ajouter</a></button>
                 </div>
                 <table>
                     <tr>
@@ -97,7 +97,7 @@
                                 ?>
                             </td>
                             <td style="width: 150px">
-                                <a href="./update.php?what=produit<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] . "&dispo=" . $row[3] ?>">
+                                <a href="http://localhost:<?php echo $port ?>/tests/homework/update.php?what=produit<?php echo "&id=" . $row[0] . "&lib=" . $row[1] . "&prix=" . $row[2] . "&dispo=" . $row[3] ?>">
                                     <span class="update">Modifier</span>
                                 </a>
                             </td>

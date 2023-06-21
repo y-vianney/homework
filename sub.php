@@ -58,7 +58,7 @@
             <div class="data-table">
                 <div class="data-table-top">
                     <div class="title">Clients</div>
-                    <button><a href="./add.php?what=client">Ajouter</a></button>
+                    <button><a href="http://localhost:<?php echo $port ?>/tests/homework/add.php?what=client">Ajouter</a></button>
                 </div>
                 <table>
                     <tr>
@@ -86,7 +86,7 @@
                                 <?php echo $row[3]; ?>
                             </td>
                             <td style="width: 150px">
-                                <a href="./update.php?what=client<?php echo "&id=" . $row[0] . "&name=" . $row[1] . "&pname=" . $row[2] . "&num=" . $row[3] ?>">
+                                <a href="http://localhost:<?php echo $port ?>/tests/homework/update.php?what=client<?php echo "&id=" . $row[0] . "&name=" . $row[1] . "&pname=" . $row[2] . "&num=" . $row[3] ?>">
                                     <span class="update">Modifier</span>
                                 </a>
                             </td>
